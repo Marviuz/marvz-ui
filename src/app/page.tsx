@@ -1,3 +1,6 @@
+'use client';
+
+import { collection } from '@zag-js/combobox';
 import {
   ComboboxClearTrigger,
   ComboboxContent,
@@ -14,22 +17,16 @@ import {
   ComboboxProvider,
   ComboboxRoot,
   ComboboxTrigger,
-} from "@/registry/combobox/combobox";
-import { createFileRoute } from "@tanstack/react-router";
-import { collection } from "@zag-js/combobox";
+} from '~registry/combobox/combobox';
 
-export const Route = createFileRoute("/")({
-  component: App,
-});
-
-function App() {
+export default function Home() {
   return (
     <main>
       <ComboboxProvider
         collection={collection({
           items: [
-            { value: "1", label: "File 1" },
-            { value: "2", label: "File 2" },
+            { value: '1', label: 'File 1' },
+            { value: '2', label: 'File 2' },
           ],
         })}
       >
@@ -46,21 +43,21 @@ function App() {
                     <ComboboxItemGroupLabel htmlFor="some_id">
                       Group 1
                     </ComboboxItemGroupLabel>
-                    <ComboboxItem item={{ value: "1", label: "File 1" }}>
-                      <ComboboxItemText item={{ value: "1", label: "File 1" }}>
+                    <ComboboxItem item={{ value: '1', label: 'File 1' }}>
+                      <ComboboxItemText item={{ value: '1', label: 'File 1' }}>
                         File 1
                       </ComboboxItemText>
                       <ComboboxItemIndicator
-                        item={{ value: "1", label: "File 1" }}
-                      ></ComboboxItemIndicator>
+                        item={{ value: '1', label: 'File 1' }}
+                      />
                     </ComboboxItem>
-                    <ComboboxItem item={{ value: "2", label: "File 2" }}>
-                      <ComboboxItemText item={{ value: "2", label: "File 2" }}>
+                    <ComboboxItem item={{ value: '2', label: 'File 2' }}>
+                      <ComboboxItemText item={{ value: '2', label: 'File 2' }}>
                         File 2
                       </ComboboxItemText>
                       <ComboboxItemIndicator
-                        item={{ value: "2", label: "File 2" }}
-                      ></ComboboxItemIndicator>
+                        item={{ value: '2', label: 'File 2' }}
+                      />
                     </ComboboxItem>
                   </ComboboxItemGroup>
                 </ComboboxList>
