@@ -5,7 +5,7 @@ import next from '@marviuz/eslint-config/next';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { ignores: ['*.config.mjs'] },
+  { ignores: ['*.config.mjs', '*.source/*'] },
   ...recommended,
   ...typescript,
   ...react,
