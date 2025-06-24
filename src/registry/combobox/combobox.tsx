@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import * as combobox from "@zag-js/combobox";
 import {
@@ -47,12 +48,19 @@ export function ComboboxProvider({
 
 export function ComboboxRoot({
   asChild,
+  className,
   ...props
 }: ComponentProps<"div"> & AsChild) {
   const api = useApi();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp {...api.getRootProps()} {...props} />;
+  return (
+    <Comp
+      {...api.getRootProps()}
+      className={cn("relative w-64", className)}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxLabel({
@@ -100,32 +108,56 @@ export const ComboboxPortal = Portal;
 
 export function ComboboxPositioner({
   asChild,
+  className,
   ...props
 }: ComponentProps<"div"> & AsChild) {
   const api = useApi();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp {...api.getPositionerProps()} {...props} />;
+  return (
+    <Comp
+      {...api.getPositionerProps()}
+      className={cn("z-50 mt-1 w-full", className)}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxContent({
   asChild,
+  className,
   ...props
 }: ComponentProps<"div"> & AsChild) {
   const api = useApi();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp {...api.getContentProps()} {...props} />;
+  return (
+    <Comp
+      {...api.getContentProps()}
+      className={cn(
+        "rounded-md border bg-popover text-popover-foreground shadow-md",
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxList({
   asChild,
+  className,
   ...props
 }: ComponentProps<"div"> & AsChild) {
   const api = useApi();
   const Comp = asChild ? Slot : "div";
 
-  return <Comp {...api.getListProps()} {...props} />;
+  return (
+    <Comp
+      {...api.getListProps()}
+      className={cn("max-h-60 overflow-y-auto p-1", className)}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxItemGroup({
@@ -140,6 +172,7 @@ export function ComboboxItemGroup({
 
 export function ComboboxItemGroupLabel({
   asChild,
+  className,
   ...props
 }: ComponentProps<"label"> & AsChild & combobox.ItemGroupLabelProps) {
   const api = useApi();
@@ -148,6 +181,10 @@ export function ComboboxItemGroupLabel({
   return (
     <Comp
       {...api.getItemGroupLabelProps({ htmlFor: props.htmlFor })}
+      className={cn(
+        "px-2 py-1.5 text-xs font-semibold text-muted-foreground",
+        className,
+      )}
       {...props}
     />
   );
@@ -157,36 +194,58 @@ export function ComboboxItem({
   asChild,
   item,
   persistFocus,
-  ...props
-}: ComponentProps<"div"> & AsChild & combobox.ItemProps) {
-  const api = useApi();
-  const Comp = asChild ? Slot : "div";
-
-  return <Comp {...api.getItemProps({ item, persistFocus })} {...props} />;
-}
-
-export function ComboboxItemText({
-  asChild,
-  item,
-  persistFocus,
-  ...props
-}: ComponentProps<"div"> & AsChild & combobox.ItemProps) {
-  const api = useApi();
-  const Comp = asChild ? Slot : "div";
-
-  return <Comp {...api.getItemTextProps({ item, persistFocus })} {...props} />;
-}
-
-export function ComboboxItemIndicator({
-  asChild,
-  item,
-  persistFocus,
+  className,
   ...props
 }: ComponentProps<"div"> & AsChild & combobox.ItemProps) {
   const api = useApi();
   const Comp = asChild ? Slot : "div";
 
   return (
-    <Comp {...api.getItemIndicatorProps({ item, persistFocus })} {...props} />
+    <Comp
+      {...api.getItemProps({ item, persistFocus })}
+      className={cn(
+        "group flex cursor-default select-none items-center justify-between rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+export function ComboboxItemText({
+  asChild,
+  item,
+  persistFocus,
+  className,
+  ...props
+}: ComponentProps<"div"> & AsChild & combobox.ItemProps) {
+  const api = useApi();
+  const Comp = asChild ? Slot : "div";
+
+  return (
+    <Comp
+      {...api.getItemTextProps({ item, persistFocus })}
+      className={cn("group-hover:text-accent-foreground", className)}
+      {...props}
+    />
+  );
+}
+
+export function ComboboxItemIndicator({
+  asChild,
+  item,
+  persistFocus,
+  className,
+  ...props
+}: ComponentProps<"div"> & AsChild & combobox.ItemProps) {
+  const api = useApi();
+  const Comp = asChild ? Slot : "div";
+
+  return (
+    <Comp
+      {...api.getItemIndicatorProps({ item, persistFocus })}
+      className={cn("ml-2 text-primary", className)}
+      {...props}
+    />
   );
 }
