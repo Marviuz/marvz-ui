@@ -34,15 +34,21 @@ function useApi() {
 export type ComboboxProps = {
   children?: ReactNode;
   id?: string;
-} & Omit<combobox.Props, 'id'>;
+  collection: Parameters<typeof combobox.collection>[0];
+} & Omit<combobox.Props, 'id' | 'collection'>;
 
 export function ComboboxProvider({
   children,
   id: idProp,
+  collection,
   ...props
 }: ComboboxProps) {
   const id = useId();
-  const service = useMachine(combobox.machine, { id: idProp ?? id, ...props });
+  const service = useMachine(combobox.machine, {
+    id: idProp ?? id,
+    collection: combobox.collection(collection),
+    ...props,
+  });
   const api = combobox.connect(service, normalizeProps);
   return <ComboboxContext value={api}>{children}</ComboboxContext>;
 }
@@ -56,8 +62,9 @@ export function ComboboxRoot({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      {...api.getRootProps()}
       className={cn('relative w-64', className)}
+      data-slot="combobox-root"
+      {...api.getRootProps()}
       {...props}
     />
   );
@@ -69,7 +76,9 @@ export function ComboboxLabel({
 }: ComponentProps<'label'> & AsChild) {
   const api = useApi();
   const Comp = asChild ? Slot : 'label';
-  return <Comp {...api.getLabelProps()} {...props} />;
+  return (
+    <Comp data-slot="combobox-label" {...api.getLabelProps()} {...props} />
+  );
 }
 
 export function ComboboxTrigger({
@@ -79,7 +88,13 @@ export function ComboboxTrigger({
 }: ComponentProps<'button'> & AsChild & combobox.TriggerProps) {
   const api = useApi();
   const Comp = asChild ? Slot : 'button';
-  return <Comp {...api.getTriggerProps({ focusable })} {...props} />;
+  return (
+    <Comp
+      data-slot="combobox-trigger"
+      {...api.getTriggerProps({ focusable })}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxClearTrigger({
@@ -88,7 +103,13 @@ export function ComboboxClearTrigger({
 }: ComponentProps<'button'> & AsChild) {
   const api = useApi();
   const Comp = asChild ? Slot : 'button';
-  return <Comp {...api.getClearTriggerProps()} {...props} />;
+  return (
+    <Comp
+      data-slot="combobox-clear-trigger"
+      {...api.getClearTriggerProps()}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxInput({
@@ -111,8 +132,9 @@ export function ComboboxPositioner({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
+      className={cn('mt-1 w-full', className)}
+      data-slot="combobox-positioner"
       {...api.getPositionerProps()}
-      className={cn('z-50 mt-1 w-full', className)}
       {...props}
     />
   );
@@ -127,11 +149,12 @@ export function ComboboxContent({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      {...api.getContentProps()}
       className={cn(
         'bg-popover text-popover-foreground rounded-md border shadow-md',
         className,
       )}
+      data-slot="combobox-content"
+      {...api.getContentProps()}
       {...props}
     />
   );
@@ -146,8 +169,9 @@ export function ComboboxList({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      {...api.getListProps()}
       className={cn('max-h-60 overflow-y-auto p-1', className)}
+      data-slot="combobox-list"
+      {...api.getListProps()}
       {...props}
     />
   );
@@ -159,7 +183,13 @@ export function ComboboxItemGroup({
 }: ComponentProps<'div'> & AsChild & combobox.ItemGroupProps) {
   const api = useApi();
   const Comp = asChild ? Slot : 'div';
-  return <Comp {...api.getItemGroupProps({ id: props.id })} {...props} />;
+  return (
+    <Comp
+      data-slot="combobox-item-group"
+      {...api.getItemGroupProps({ id: props.id })}
+      {...props}
+    />
+  );
 }
 
 export function ComboboxItemGroupLabel({
@@ -171,11 +201,12 @@ export function ComboboxItemGroupLabel({
   const Comp = asChild ? Slot : 'label';
   return (
     <Comp
-      {...api.getItemGroupLabelProps({ htmlFor: props.htmlFor })}
       className={cn(
         'text-muted-foreground px-2 py-1.5 text-xs font-semibold',
         className,
       )}
+      data-slot="combobox-item-group-label"
+      {...api.getItemGroupLabelProps({ htmlFor: props.htmlFor })}
       {...props}
     />
   );
@@ -192,11 +223,13 @@ export function ComboboxItem({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      {...api.getItemProps({ item, persistFocus })}
       className={cn(
-        'group hover:bg-accent hover:text-accent-foreground flex cursor-default items-center justify-between rounded-sm px-2 py-1.5 text-sm outline-none select-none',
+        'group flex cursor-default items-center justify-between rounded-sm px-2 py-1.5 text-sm outline-none select-none',
+        'aria-selected:bg-accent aria-selected:text-accent-foreground',
         className,
       )}
+      data-slot="combobox-item"
+      {...api.getItemProps({ item, persistFocus })}
       {...props}
     />
   );
@@ -213,8 +246,9 @@ export function ComboboxItemText({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      {...api.getItemTextProps({ item, persistFocus })}
       className={cn('group-hover:text-accent-foreground', className)}
+      data-slot="combobox-item-text"
+      {...api.getItemTextProps({ item, persistFocus })}
       {...props}
     />
   );
@@ -231,8 +265,9 @@ export function ComboboxItemIndicator({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      {...api.getItemIndicatorProps({ item, persistFocus })}
       className={cn('text-primary ml-2', className)}
+      data-slot="combobox-item-indicator"
+      {...api.getItemIndicatorProps({ item, persistFocus })}
       {...props}
     />
   );

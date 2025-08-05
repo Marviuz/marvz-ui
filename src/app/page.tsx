@@ -1,6 +1,5 @@
 'use client';
 
-import { collection } from '@zag-js/combobox';
 import {
   ComboboxClearTrigger,
   ComboboxContent,
@@ -23,17 +22,17 @@ export default function Home() {
   return (
     <main>
       <ComboboxProvider
-        collection={collection({
+        collection={{
           items: [
             { value: '1', label: 'File 1' },
             { value: '2', label: 'File 2' },
           ],
-        })}
+        }}
       >
         <ComboboxRoot>
           <ComboboxLabel>Select file label</ComboboxLabel>
           <ComboboxInput />
-          <ComboboxTrigger>Select file</ComboboxTrigger>
+          <ComboboxTrigger>Select file trigger</ComboboxTrigger>
           <ComboboxClearTrigger>X</ComboboxClearTrigger>
           <ComboboxPortal>
             <ComboboxPositioner>

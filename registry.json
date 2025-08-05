@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ui.marviuz.me",
+  "homepage": "https://example.com",
+  "items": [
+    {
+      "name": "combobox",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/combobox/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
