@@ -1,4 +1,6 @@
 import fs from 'node:fs/promises';
+import { codeToHtml } from 'shiki';
+import parse from 'html-react-parser';
 import { registry, type Registry } from '~registry/__all__';
 import {
   TabsContent,
@@ -12,18 +14,18 @@ type ComponentPreviewProps = {
   registry: keyof Registry;
 };
 
-export function ComponentPreview({
+export async function ComponentPreview({
   registry: registryKey,
 }: ComponentPreviewProps) {
   const Comp = registry[registryKey].Example;
 
-  const getFile = async () => {
-    'use server';
+  const file = registry[registryKey].path;
+  const content = await fs.readFile(file);
 
-    const file = registry[registryKey].path;
-    const content = await fs.readFile(file);
-    return content.toString();
-  };
+  const html = await codeToHtml(content.toString(), {
+    lang: 'javascript',
+    theme: 'vitesse-dark',
+  });
 
   return (
     <TabsProvider defaultValue="preview">
@@ -37,11 +39,7 @@ export function ComponentPreview({
           <Comp />
         </TabsContent>
 
-        <TabsContent value="code">
-          <pre>
-            <code>{getFile()}</code>
-          </pre>
-        </TabsContent>
+        <TabsContent value="code">{parse(html.trim())}</TabsContent>
       </TabsRoot>
     </TabsProvider>
   );
