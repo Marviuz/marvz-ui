@@ -1,8 +1,8 @@
 // @ts-nocheck -- skip type checking
-import * as docs_3 from '../content/docs/tabs.mdx?collection=docs&hash=1750770325460';
-import * as docs_2 from '../content/docs/index.mdx?collection=docs&hash=1750770325460';
-import * as docs_1 from '../content/docs/combobox.mdx?collection=docs&hash=1750770325460';
-import * as docs_0 from '../content/docs/card.mdx?collection=docs&hash=1750770325460';
+import * as docs_3 from '../content/docs/tabs.mdx?collection=docs&hash=1754480743111';
+import * as docs_2 from '../content/docs/index.mdx?collection=docs&hash=1754480743111';
+import * as docs_1 from '../content/docs/combobox.mdx?collection=docs&hash=1754480743111';
+import * as docs_0 from '../content/docs/card.mdx?collection=docs&hash=1754480743111';
 import { _runtime } from 'fumadocs-mdx';
 import * as _source from '../source.config';
 export const docs = _runtime.docs<typeof _source.docs>(

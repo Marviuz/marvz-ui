@@ -7,6 +7,7 @@ import {
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '~/../mdx-components';
+import { DocBadge } from '~/components/doc-badge';
 import { source } from '~/lib/source';
 
 export default async function Page(props: {
@@ -21,7 +22,14 @@ export default async function Page(props: {
   return (
     <DocsPage full={page.data.full} toc={page.data.toc}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <div className="mb-8">
+        <div className="flex flex-col items-start gap-4">
+          <DocsDescription className="mb-0">
+            {page.data.description}
+          </DocsDescription>
+          {page.data.docs ? <DocBadge href={page.data.docs} /> : null}
+        </div>
+      </div>
       <DocsBody>
         <Mdx components={getMDXComponents()} />
       </DocsBody>
