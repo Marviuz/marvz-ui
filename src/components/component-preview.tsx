@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
-import { codeToHtml } from 'shiki';
-import parse from 'html-react-parser';
+// import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
+import { highlight } from 'fumadocs-core/highlight';
 import { registry, type Registry } from '~registry/__all__';
 import {
   TabsContent,
@@ -22,9 +23,12 @@ export async function ComponentPreview({
   const file = registry[registryKey].path;
   const content = await fs.readFile(file);
 
-  const html = await codeToHtml(content.toString(), {
-    lang: 'javascript',
-    theme: 'vitesse-dark',
+  const rendered = await highlight(content.toString().trim(), {
+    lang: 'tsx',
+    theme: 'poimandres',
+    components: {
+      pre: Pre,
+    },
   });
 
   return (
@@ -39,7 +43,23 @@ export async function ComponentPreview({
           <Comp />
         </TabsContent>
 
-        <TabsContent value="code">{parse(html.trim())}</TabsContent>
+        <TabsContent value="code">
+          {/* TODO: make this option for changing themes  */}
+          {/* import { bundledThemes } from 'shiki'; */}
+          {/* <pre>{JSON.stringify(Object.keys(bundledThemes), null, 2)}</pre> */}
+
+          {/* NOTE: server component. Real colors but weird padding Y  */}
+          <CodeBlock className="[&_pre]:py-4 [&>:has(>pre)]:py-0" lang="tsx">
+            {rendered}
+          </CodeBlock>
+
+          {/* NOTE: client component. No problem with colors */}
+          {/* <DynamicCodeBlock */}
+          {/*   code={content.toString().trim()} */}
+          {/*   lang="tsx" */}
+          {/*   options={{ theme: 'poimandres' }} */}
+          {/* /> */}
+        </TabsContent>
       </TabsRoot>
     </TabsProvider>
   );
