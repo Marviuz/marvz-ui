@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 // import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
-import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
 import { highlight } from 'fumadocs-core/highlight';
+import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
 import { registry, type Registry } from '~registry/__all__';
 import {
   TabsContent,
@@ -40,7 +40,10 @@ export async function ComponentPreview({
         </TabsList>
 
         <TabsContent value="preview">
-          <Comp />
+          {/* TODO: make this a card */}
+          <div className="svg-bg-dots grid place-items-center-safe rounded border">
+            <Comp />
+          </div>
         </TabsContent>
 
         <TabsContent value="code">
