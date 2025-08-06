@@ -1,4 +1,5 @@
 // @ts-nocheck -- skip type checking
+import * as docs_2 from '../content/docs/tabs.mdx?collection=docs&hash=1750770325460';
 import * as docs_1 from '../content/docs/index.mdx?collection=docs&hash=1750770325460';
 import * as docs_0 from '../content/docs/combobox.mdx?collection=docs&hash=1750770325460';
 import { _runtime } from 'fumadocs-mdx';
@@ -20,6 +21,14 @@ export const docs = _runtime.docs<typeof _source.docs>(
           '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/index.mdx',
       },
       data: docs_1,
+    },
+    {
+      info: {
+        path: 'tabs.mdx',
+        absolutePath:
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/tabs.mdx',
+      },
+      data: docs_2,
     },
   ],
   [],

@@ -48,7 +48,7 @@ export function TabsRoot({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      className={cn('tabs-root', className)}
+      className={cn('', className)}
       data-slot="tabs-root"
       {...api.getRootProps()}
       {...props}
@@ -65,7 +65,7 @@ export function TabsList({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      className={cn('tabs-list flex space-x-2', className)}
+      className={cn('flex space-x-2', className)}
       data-slot="tabs-list"
       {...api.getListProps()}
       {...props}
@@ -85,7 +85,7 @@ export function TabsTrigger({
   return (
     <Comp
       className={cn(
-        'tabs-trigger rounded-md px-3 py-1.5 text-sm font-medium',
+        'rounded-md px-3 py-1.5 text-sm font-medium',
         'aria-selected:bg-accent aria-selected:text-accent-foreground',
         className,
       )}
@@ -106,7 +106,7 @@ export function TabsContent({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      className={cn('tabs-content mt-4', className)}
+      className={cn('mt-4', className)}
       data-slot="tabs-content"
       {...api.getContentProps({ value })}
       {...props}
