@@ -16,7 +16,7 @@ import {
   ComboboxTrigger,
 } from './combobox';
 
-export function ComboboxExample() {
+export default function ComboboxExample() {
   return (
     <ComboboxProvider
       collection={{

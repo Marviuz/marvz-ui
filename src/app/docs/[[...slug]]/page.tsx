@@ -4,10 +4,10 @@ import {
   DocsPage,
   DocsTitle,
 } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
 import { type Metadata } from 'next';
-import { source } from '~/lib/source';
+import { notFound } from 'next/navigation';
 import { getMDXComponents } from '~/../mdx-components';
+import { source } from '~/lib/source';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
