@@ -17,6 +17,9 @@ import {
   type ComponentProps,
   type ReactNode,
 } from 'react';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
+import { Label } from '~/components/ui/label';
 import { cn } from '~/lib/utils';
 
 type AsChild = {
@@ -62,7 +65,7 @@ export function ComboboxRoot({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      className={cn('relative w-64', className)}
+      className={cn('grid gap-2', className)}
       data-slot="combobox-root"
       {...api.getRootProps()}
       {...props}
@@ -70,26 +73,37 @@ export function ComboboxRoot({
   );
 }
 
-export function ComboboxLabel({
-  asChild,
-  ...props
-}: ComponentProps<'label'> & AsChild) {
+export function ComboboxLabel(props: ComponentProps<typeof Label>) {
   const api = useApi();
-  const Comp = asChild ? Slot : 'label';
   return (
-    <Comp data-slot="combobox-label" {...api.getLabelProps()} {...props} />
+    <Label data-slot="combobox-label" {...api.getLabelProps()} {...props} />
+  );
+}
+
+export function ComboboxControl({
+  asChild,
+  className,
+  ...props
+}: ComponentProps<'div'> & AsChild) {
+  const api = useApi();
+  const Comp = asChild ? Slot : 'div';
+  return (
+    <Comp
+      className={cn('flex gap-2', className)}
+      data-slot="combobox-control"
+      {...api.getControlProps()}
+      {...props}
+    />
   );
 }
 
 export function ComboboxTrigger({
-  asChild,
   focusable,
   ...props
-}: ComponentProps<'button'> & AsChild & combobox.TriggerProps) {
+}: ComponentProps<typeof Button> & combobox.TriggerProps) {
   const api = useApi();
-  const Comp = asChild ? Slot : 'button';
   return (
-    <Comp
+    <Button
       data-slot="combobox-trigger"
       {...api.getTriggerProps({ focusable })}
       {...props}
@@ -97,14 +111,10 @@ export function ComboboxTrigger({
   );
 }
 
-export function ComboboxClearTrigger({
-  asChild,
-  ...props
-}: ComponentProps<'button'> & AsChild) {
+export function ComboboxClearTrigger(props: ComponentProps<typeof Button>) {
   const api = useApi();
-  const Comp = asChild ? Slot : 'button';
   return (
-    <Comp
+    <Button
       data-slot="combobox-clear-trigger"
       {...api.getClearTriggerProps()}
       {...props}
@@ -112,13 +122,9 @@ export function ComboboxClearTrigger({
   );
 }
 
-export function ComboboxInput({
-  asChild,
-  ...props
-}: ComponentProps<'input'> & AsChild) {
+export function ComboboxInput(props: ComponentProps<typeof Input>) {
   const api = useApi();
-  const Comp = asChild ? Slot : 'input';
-  return <Comp {...api.getInputProps()} {...props} />;
+  return <Input {...api.getInputProps()} {...props} />;
 }
 
 export const ComboboxPortal = Portal;
@@ -193,14 +199,12 @@ export function ComboboxItemGroup({
 }
 
 export function ComboboxItemGroupLabel({
-  asChild,
   className,
   ...props
-}: ComponentProps<'label'> & AsChild & combobox.ItemGroupLabelProps) {
+}: ComponentProps<typeof Label> & combobox.ItemGroupLabelProps) {
   const api = useApi();
-  const Comp = asChild ? Slot : 'label';
   return (
-    <Comp
+    <Label
       className={cn(
         'text-muted-foreground px-2 py-1.5 text-xs font-semibold',
         className,

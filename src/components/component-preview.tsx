@@ -41,8 +41,10 @@ export async function ComponentPreview({
 
         <TabsContent value="preview">
           {/* TODO: make this a card */}
-          <div className="svg-bg-dots grid place-items-center-safe rounded border">
-            <Comp />
+          <div className="bg-card not-prose my-4 rounded-xl border p-1">
+            <div className="svg-bg-dots bg-background grid h-full min-h-80 place-items-center-safe rounded-xl border">
+              <Comp />
+            </div>
           </div>
         </TabsContent>
 

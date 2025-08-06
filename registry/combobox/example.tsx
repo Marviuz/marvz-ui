@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { ChevronDown, X } from 'lucide-react';
 import {
   ComboboxClearTrigger,
   ComboboxContent,
+  ComboboxControl,
   ComboboxInput,
   ComboboxItem,
   ComboboxItemGroup,
@@ -20,8 +22,8 @@ import {
 } from './combobox';
 
 const originalOptions = [
-  { value: '1', label: 'File 1' },
-  { value: '2', label: 'File 2' },
+  { value: '1', label: 'Option 1' },
+  { value: '2', label: 'Option 2' },
 ];
 
 export default function ComboboxExample() {
@@ -29,49 +31,53 @@ export default function ComboboxExample() {
   const [value, setValue] = useState<string[]>([]);
 
   return (
-    <div>
-      <div>{value.join(', ')}</div>
-      <ComboboxProvider
-        collection={{
-          items: options,
-        }}
-        onInputValueChange={({ inputValue }) => {
-          const filtered = originalOptions.filter((item) =>
-            item.label.toLowerCase().includes(inputValue.toLowerCase()),
-          );
-          setOptions(filtered.length > 0 ? filtered : originalOptions);
-        }}
-        onOpenChange={() => setOptions(originalOptions)}
-        onSelect={(selectedValue) => setValue(selectedValue.value)}
-      >
-        <ComboboxRoot>
-          <ComboboxLabel>Select file label</ComboboxLabel>
+    <ComboboxProvider
+      collection={{
+        items: options,
+      }}
+      value={value}
+      onInputValueChange={({ inputValue }) => {
+        const filtered = originalOptions.filter((item) =>
+          item.label.toLowerCase().includes(inputValue.toLowerCase()),
+        );
+        setOptions(filtered.length > 0 ? filtered : originalOptions);
+      }}
+      onOpenChange={() => setOptions(originalOptions)}
+      onSelect={(selectedValue) => setValue(selectedValue.value)}
+    >
+      <ComboboxRoot>
+        <ComboboxLabel>Select file label</ComboboxLabel>
+        <ComboboxControl>
           <ComboboxInput />
-          <ComboboxTrigger>Select file trigger</ComboboxTrigger>
-          <ComboboxClearTrigger>X</ComboboxClearTrigger>
-          <ComboboxPortal>
-            <ComboboxPositioner>
-              <ComboboxContent>
-                <ComboboxList>
-                  <ComboboxItemGroup id="some_id">
-                    <ComboboxItemGroupLabel htmlFor="some_id">
-                      Group 1
-                    </ComboboxItemGroupLabel>
-                    {options.map((option) => (
-                      <ComboboxItem item={option} key={option.value}>
-                        <ComboboxItemText item={option}>
-                          {option.label}
-                        </ComboboxItemText>
-                        <ComboboxItemIndicator item={option} />
-                      </ComboboxItem>
-                    ))}
-                  </ComboboxItemGroup>
-                </ComboboxList>
-              </ComboboxContent>
-            </ComboboxPositioner>
-          </ComboboxPortal>
-        </ComboboxRoot>
-      </ComboboxProvider>
-    </div>
+          <ComboboxTrigger size="icon" variant="ghost">
+            <ChevronDown />
+          </ComboboxTrigger>
+          <ComboboxClearTrigger size="icon" variant="ghost">
+            <X />
+          </ComboboxClearTrigger>
+        </ComboboxControl>
+        <ComboboxPortal>
+          <ComboboxPositioner>
+            <ComboboxContent>
+              <ComboboxList>
+                <ComboboxItemGroup id="some_id">
+                  <ComboboxItemGroupLabel htmlFor="some_id">
+                    Group 1
+                  </ComboboxItemGroupLabel>
+                  {options.map((option) => (
+                    <ComboboxItem item={option} key={option.value}>
+                      <ComboboxItemText item={option}>
+                        {option.label}
+                      </ComboboxItemText>
+                      <ComboboxItemIndicator item={option} />
+                    </ComboboxItem>
+                  ))}
+                </ComboboxItemGroup>
+              </ComboboxList>
+            </ComboboxContent>
+          </ComboboxPositioner>
+        </ComboboxPortal>
+      </ComboboxRoot>
+    </ComboboxProvider>
   );
 }

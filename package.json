@@ -13,6 +13,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@types/mdx": "^2.0.13",
     "@zag-js/combobox": "^1.21.1",
