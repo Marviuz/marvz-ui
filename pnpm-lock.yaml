@@ -20,6 +20,9 @@ importers:
       '@zag-js/combobox':
         specifier: ^1.21.1
         version: 1.21.1
+      '@zag-js/date-picker':
+        specifier: ^1.21.1
+        version: 1.21.1(@internationalized/date@3.8.2)
       '@zag-js/react':
         specifier: ^1.21.1
         version: 1.21.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -678,6 +681,9 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
+
+  '@internationalized/date@3.8.2':
+    resolution: {integrity: sha512-/wENk7CbvLbkUvX1tu0mwq49CVkkWpkXubGel6birjRPyo6uQ4nQpnq5xZu823zRCwwn82zgHrvgF1vZyvmVgA==}
 
   '@isaacs/fs-minipass@4.0.1':
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
@@ -1557,6 +1563,16 @@ packages:
   '@zag-js/core@1.21.1':
     resolution: {integrity: sha512-bxkrKpT2F6oyy4NovQDRvFhFEf13Owyr100aty+xiYxvrWz0rNAOaid+hmjIP4f+QDvxGF1XiYFmXgqls3sUTw==}
 
+  '@zag-js/date-picker@1.21.1':
+    resolution: {integrity: sha512-hbjS5HDGJNeoeSDXhHaT2+y6CN/XcJynraiqXC1Uo8Pk2jRWUw56jq6Iz2YwgYpkMnfUiDXOYw59fd68uOuCPw==}
+    peerDependencies:
+      '@internationalized/date': '>=3.0.0'
+
+  '@zag-js/date-utils@1.21.1':
+    resolution: {integrity: sha512-6461atpElC0B+YAsN9ShzAx+PZOmsCmtYtdGX79dZCYwvD9SRNFrakDRwu0gmpEoqJ7tiQ04AUZDJZSMwcq1zw==}
+    peerDependencies:
+      '@internationalized/date': '>=3.0.0'
+
   '@zag-js/dismissable@1.21.1':
     resolution: {integrity: sha512-Q1oxibCjBM1NXlcp1/5nr45DHYTUzep7Zs3+ViEpSWjC8sQA2acNm2Xg0GdDNzwwgqAo+evTzStY6hleNDKZ3A==}
 
@@ -1565,6 +1581,9 @@ packages:
 
   '@zag-js/interact-outside@1.21.1':
     resolution: {integrity: sha512-levryguVZWrjTXTEPH6X9ZZ47huMTgscnFmeFL+eRsnDuvUFq48jVgysECO4KHbZLJmcUTlSpRC3mrOSsksH/g==}
+
+  '@zag-js/live-region@1.21.1':
+    resolution: {integrity: sha512-SrNVeHOjDmjEacCLyVFui2WgGb6fRCBE/pgYlAY4G/Fuqz8kIt+3cTTNsf76h9ur9eG0DknECHxV8F1419bzqQ==}
 
   '@zag-js/popper@1.21.1':
     resolution: {integrity: sha512-MbLCIy95lBGbGYmAhmmaSczQ9RYicNyPJ1+3qb/c3D6OK9PX3E98/GWCp12UQGJhanzEkGLdEFqjYrrTp5pZQw==}
@@ -4973,6 +4992,10 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.0.3
 
+  '@internationalized/date@3.8.2':
+    dependencies:
+      '@swc/helpers': 0.5.15
+
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
       minipass: 7.1.2
@@ -5902,6 +5925,23 @@ snapshots:
       '@zag-js/dom-query': 1.21.1
       '@zag-js/utils': 1.21.1
 
+  '@zag-js/date-picker@1.21.1(@internationalized/date@3.8.2)':
+    dependencies:
+      '@internationalized/date': 3.8.2
+      '@zag-js/anatomy': 1.21.1
+      '@zag-js/core': 1.21.1
+      '@zag-js/date-utils': 1.21.1(@internationalized/date@3.8.2)
+      '@zag-js/dismissable': 1.21.1
+      '@zag-js/dom-query': 1.21.1
+      '@zag-js/live-region': 1.21.1
+      '@zag-js/popper': 1.21.1
+      '@zag-js/types': 1.21.1
+      '@zag-js/utils': 1.21.1
+
+  '@zag-js/date-utils@1.21.1(@internationalized/date@3.8.2)':
+    dependencies:
+      '@internationalized/date': 3.8.2
+
   '@zag-js/dismissable@1.21.1':
     dependencies:
       '@zag-js/dom-query': 1.21.1
@@ -5916,6 +5956,8 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 1.21.1
       '@zag-js/utils': 1.21.1
+
+  '@zag-js/live-region@1.21.1': {}
 
   '@zag-js/popper@1.21.1':
     dependencies:

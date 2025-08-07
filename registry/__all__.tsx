@@ -2,6 +2,7 @@ import { resolve } from 'node:path';
 import ComboboxExample from './combobox/example';
 import TabsExample from './tabs/example';
 import CardExample from './card/example';
+import DatePickerExample from './date-picker/example';
 
 function getPath(path: string) {
   return resolve(process.cwd(), 'registry', path);
@@ -19,6 +20,10 @@ export const registry = {
   Card: {
     Example: CardExample,
     path: getPath('./card/example.tsx'),
+  },
+  DatePicker: {
+    Example: DatePickerExample,
+    path: getPath('./date-picker/example.tsx'),
   },
 } as const;
 

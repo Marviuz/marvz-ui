@@ -156,7 +156,7 @@ export function ComboboxContent({
   return (
     <Comp
       className={cn(
-        'bg-popover text-popover-foreground rounded-md border shadow-md',
+        'bg-popover text-popover-foreground w-[var(--reference-width)] rounded-md border shadow-md',
         className,
       )}
       data-slot="combobox-content"

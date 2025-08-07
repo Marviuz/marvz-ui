@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@types/mdx": "^2.0.13",
     "@zag-js/combobox": "^1.21.1",
+    "@zag-js/date-picker": "^1.21.1",
     "@zag-js/react": "^1.21.1",
     "@zag-js/tabs": "^1.21.1",
     "class-variance-authority": "^0.7.1",

@@ -22,5 +22,22 @@ export function Card({ asChild, className, ...props }: DivProps) {
 
 export function CardContent({ asChild, className, ...props }: DivProps) {
   const Comp = asChild ? Slot : 'div';
-  return <Comp className={cn('p-6', className)} data-slot="card" {...props} />;
+  return (
+    <Comp
+      className={cn('p-6', className)}
+      data-slot="card-content"
+      {...props}
+    />
+  );
+}
+
+export function CardHeader({ asChild, className, ...props }: DivProps) {
+  const Comp = asChild ? Slot : 'div';
+  return (
+    <Comp
+      className={cn('px-6 pt-6', className)}
+      data-slot="card-header"
+      {...props}
+    />
+  );
 }
