@@ -4,12 +4,58 @@
   "homepage": "https://example.com",
   "items": [
     {
+      "name": "card",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/card/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "combobox",
       "type": "registry:component",
       "files": [
         {
           "path": "registry/combobox/combobox.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "dependencies": [
+            "@radix-ui/react-slot",
+            "@zag-js/combobox",
+            "@zag-js/react"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/date-picker/date-picker.tsx",
+          "type": "registry:ui",
+          "dependencies": [
+            "@radix-ui/react-slot",
+            "@zag-js/date-picker",
+            "@zag-js/react",
+            "lucide-react"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/tabs/tabs.tsx",
+          "type": "registry:ui",
+          "dependencies": [
+            "@radix-ui/react-slot",
+            "@zag-js/tabs",
+            "@zag-js/react"
+          ]
         }
       ]
     }

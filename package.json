@@ -2,6 +2,7 @@
   "name": "@marvz/ui",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "check-updates": "pnpx npm-check-updates -ui",
@@ -10,6 +11,7 @@
     "lint": "next lint",
     "prepare": "husky",
     "registry:build": "shadcn build",
+    "registry:generate": "tsx scripts/build-registry.ts",
     "start": "next start"
   },
   "dependencies": {
@@ -25,12 +27,14 @@
     "fumadocs-core": "^15.6.9",
     "fumadocs-mdx": "^11.7.3",
     "fumadocs-ui": "^15.6.9",
+    "globby": "^14.1.0",
     "lucide-react": "^0.537.0",
     "next": "15.4.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "shiki": "^3.9.2",
     "tailwind-merge": "^3.3.1",
+    "tsx": "^4.20.3",
     "zod": "^4.0.15"
   },
   "devDependencies": {
