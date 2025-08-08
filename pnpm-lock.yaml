@@ -17,6 +17,9 @@ importers:
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
+      '@zag-js/color-picker':
+        specifier: ^1.21.1
+        version: 1.21.1
       '@zag-js/combobox':
         specifier: ^1.21.1
         version: 1.21.1
@@ -39,8 +42,8 @@ importers:
         specifier: ^15.6.9
         version: 15.6.9(@types/react@19.1.8)(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       fumadocs-mdx:
-        specifier: ^11.7.3
-        version: 11.7.3(acorn@8.15.0)(fumadocs-core@15.6.9(@types/react@19.1.8)(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
+        specifier: ^11.7.4
+        version: 11.7.4(acorn@8.15.0)(fumadocs-core@15.6.9(@types/react@19.1.8)(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
       fumadocs-ui:
         specifier: ^15.6.9
         version: 15.6.9(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.10)
@@ -1560,6 +1563,12 @@ packages:
   '@zag-js/collection@1.21.1':
     resolution: {integrity: sha512-3a/ycmIlu9vv9Cf2um+vGamgDoFadEG0dM/JxM4O/hxxi/VMKT91B55C2d9Lg+5WnYd0KJ/BOAttrPPKrjbOvQ==}
 
+  '@zag-js/color-picker@1.21.1':
+    resolution: {integrity: sha512-vyYjJeEz7Se6HlL3vO8EFQQQDcojFwAm56Uhbb2dk8qMWIHJkHVk0f2bbwZm35oXfwYRQnRKUuFXdi4wpIsgnQ==}
+
+  '@zag-js/color-utils@1.21.1':
+    resolution: {integrity: sha512-lweB/5eg5bk2Tequ7aa5jSyDF29dAiQSM6nJwsDu+rhKGDM6WDDvj+cKfF0y517lQjB7LsYES2s72HAX9hhAYA==}
+
   '@zag-js/combobox@1.21.1':
     resolution: {integrity: sha512-IrE6LWzyA1JOC//cWJXskzDt2tFDD98CZWrcpsFN1CycQaAlNZSwANaaexo/aqXrWTaVDdJXKy0RrC/7OiXWkQ==}
 
@@ -2478,8 +2487,8 @@ packages:
       react-router:
         optional: true
 
-  fumadocs-mdx@11.7.3:
-    resolution: {integrity: sha512-EMuISWaUeImpd2KI9LdWfc1rMWv9qfIoJSAXsI3TDXph8v4FyQ7Nz+NRpeoNgv59gzwKbkMRcnZnrKXI/ybnoA==}
+  fumadocs-mdx@11.7.4:
+    resolution: {integrity: sha512-PNn3AcbaDJwAaXlm5lgVG4CavWOPWVH9FNaB1L0BsKMthnprDlagDy54+8QX3EAzeUB2eLYTtrD3BIjzbzpFEg==}
     hasBin: true
     peerDependencies:
       '@fumadocs/mdx-remote': ^1.4.0
@@ -5921,6 +5930,21 @@ snapshots:
     dependencies:
       '@zag-js/utils': 1.21.1
 
+  '@zag-js/color-picker@1.21.1':
+    dependencies:
+      '@zag-js/anatomy': 1.21.1
+      '@zag-js/color-utils': 1.21.1
+      '@zag-js/core': 1.21.1
+      '@zag-js/dismissable': 1.21.1
+      '@zag-js/dom-query': 1.21.1
+      '@zag-js/popper': 1.21.1
+      '@zag-js/types': 1.21.1
+      '@zag-js/utils': 1.21.1
+
+  '@zag-js/color-utils@1.21.1':
+    dependencies:
+      '@zag-js/utils': 1.21.1
+
   '@zag-js/combobox@1.21.1':
     dependencies:
       '@zag-js/anatomy': 1.21.1
@@ -7070,7 +7094,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  fumadocs-mdx@11.7.3(acorn@8.15.0)(fumadocs-core@15.6.9(@types/react@19.1.8)(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1):
+  fumadocs-mdx@11.7.4(acorn@8.15.0)(fumadocs-core@15.6.9(@types/react@19.1.8)(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(next@15.4.6(@babel/core@7.27.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1):
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
       '@standard-schema/spec': 1.0.0

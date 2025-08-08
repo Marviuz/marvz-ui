@@ -3,6 +3,7 @@ import ComboboxExample from './combobox/example';
 import TabsExample from './tabs/example';
 import CardExample from './card/example';
 import DatePickerExample from './date-picker/example';
+import { ColorPickerExample } from './color-picker/example';
 
 function getPath(path: string) {
   return resolve(process.cwd(), 'registry', path);
@@ -24,6 +25,10 @@ export const registry = {
   DatePicker: {
     Example: DatePickerExample,
     path: getPath('./date-picker/example.tsx'),
+  },
+  ColorPicker: {
+    Example: ColorPickerExample,
+    path: getPath('./color-picker/example.tsx'),
   },
 } as const;
 

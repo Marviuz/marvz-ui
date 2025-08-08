@@ -14,6 +14,21 @@
       ]
     },
     {
+      "name": "color-picker",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "registry/color-picker/color-picker.tsx",
+          "type": "registry:ui",
+          "dependencies": [
+            "@radix-ui/react-slot",
+            "@zag-js/color-picker",
+            "@zag-js/react"
+          ]
+        }
+      ]
+    },
+    {
       "name": "combobox",
       "type": "registry:component",
       "files": [

@@ -1,8 +1,9 @@
 // @ts-nocheck -- skip type checking
-import * as docs_4 from '../content/docs/tabs.mdx?collection=docs&hash=1754480743111';
-import * as docs_3 from '../content/docs/index.mdx?collection=docs&hash=1754480743111';
-import * as docs_2 from '../content/docs/date-picker.mdx?collection=docs&hash=1754480743111';
-import * as docs_1 from '../content/docs/combobox.mdx?collection=docs&hash=1754480743111';
+import * as docs_5 from '../content/docs/tabs.mdx?collection=docs&hash=1754480743111';
+import * as docs_4 from '../content/docs/index.mdx?collection=docs&hash=1754480743111';
+import * as docs_3 from '../content/docs/date-picker.mdx?collection=docs&hash=1754480743111';
+import * as docs_2 from '../content/docs/combobox.mdx?collection=docs&hash=1754480743111';
+import * as docs_1 from '../content/docs/color-picker.mdx?collection=docs&hash=1754480743111';
 import * as docs_0 from '../content/docs/card.mdx?collection=docs&hash=1754480743111';
 import { _runtime } from 'fumadocs-mdx';
 import * as _source from '../source.config';
@@ -18,11 +19,19 @@ export const docs = _runtime.docs<typeof _source.docs>(
     },
     {
       info: {
+        path: 'color-picker.mdx',
+        absolutePath:
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/color-picker.mdx',
+      },
+      data: docs_1,
+    },
+    {
+      info: {
         path: 'combobox.mdx',
         absolutePath:
           '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/combobox.mdx',
       },
-      data: docs_1,
+      data: docs_2,
     },
     {
       info: {
@@ -30,7 +39,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/date-picker.mdx',
       },
-      data: docs_2,
+      data: docs_3,
     },
     {
       info: {
@@ -38,7 +47,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/index.mdx',
       },
-      data: docs_3,
+      data: docs_4,
     },
     {
       info: {
@@ -46,7 +55,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/tabs.mdx',
       },
-      data: docs_4,
+      data: docs_5,
     },
   ],
   [],
