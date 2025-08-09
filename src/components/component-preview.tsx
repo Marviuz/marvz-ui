@@ -1,7 +1,7 @@
-import fs from 'node:fs/promises';
 // import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
 import { highlight } from 'fumadocs-core/highlight';
 import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
+import { getRegistryContent } from '~/utils/registry-utils';
 import { registry, type Registry } from '~registry/__all__';
 import {
   TabsContent,
@@ -21,7 +21,7 @@ export async function ComponentPreview({
   const Comp = registry[registryKey].Example;
 
   const file = registry[registryKey].path;
-  const content = await fs.readFile(file);
+  const content = await getRegistryContent(file);
 
   const rendered = await highlight(content.toString().trim(), {
     lang: 'tsx',

@@ -28,10 +28,6 @@ function checkDeps(deps: unknown): string[] | null {
 }
 
 export function InstallPackage({ registry }: InstallPackageProps) {
-  if (!('dependencies' in allRegistry[registry])) {
-    throw new Error(`Unknown registry: ${registry}`);
-  }
-
   const deps = checkDeps(allRegistry[registry].dependencies);
 
   if (!deps) {

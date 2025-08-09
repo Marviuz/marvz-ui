@@ -1,10 +1,10 @@
 // @ts-nocheck -- skip type checking
-import * as docs_5 from '../content/docs/get-started/introduction.mdx?collection=docs&hash=1754745207188';
-import * as docs_4 from '../content/docs/components/tabs.mdx?collection=docs&hash=1754745207188';
-import * as docs_3 from '../content/docs/components/date-picker.mdx?collection=docs&hash=1754745207188';
-import * as docs_2 from '../content/docs/components/combobox.mdx?collection=docs&hash=1754745207188';
-import * as docs_1 from '../content/docs/components/color-picker.mdx?collection=docs&hash=1754745207188';
-import * as docs_0 from '../content/docs/components/card.mdx?collection=docs&hash=1754745207188';
+import * as docs_5 from '../content/docs/get-started/introduction.mdx?collection=docs&hash=1754752581917';
+import * as docs_4 from '../content/docs/components/tabs.mdx?collection=docs&hash=1754752581917';
+import * as docs_3 from '../content/docs/components/date-picker.mdx?collection=docs&hash=1754752581917';
+import * as docs_2 from '../content/docs/components/combobox.mdx?collection=docs&hash=1754752581917';
+import * as docs_1 from '../content/docs/components/color-picker.mdx?collection=docs&hash=1754752581917';
+import * as docs_0 from '../content/docs/components/card.mdx?collection=docs&hash=1754752581917';
 import { _runtime } from 'fumadocs-mdx';
 import * as _source from '../source.config';
 export const docs = _runtime.docs<typeof _source.docs>(

@@ -5,12 +5,12 @@ import { relative } from 'node:path';
 import { type RegistryItem } from '~/utils/registry-utils';
 import { cardRegistry } from '~registry/card/registry';
 import { colorPickerRegistry } from '~registry/color-picker/registry';
-import { combobxRegistry } from '~registry/combobox/registry';
+import { comboboxRegistry } from '~registry/combobox/registry';
 import { datePickerRegistry } from '~registry/date-picker/registry';
 import { tabsRegistry } from '~registry/tabs/registry';
 
 const registries = [
-  combobxRegistry,
+  comboboxRegistry,
   cardRegistry,
   tabsRegistry,
   datePickerRegistry,

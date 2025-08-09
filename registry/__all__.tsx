@@ -5,6 +5,10 @@ import ComboboxExample from './combobox/example';
 import DatePickerExample from './date-picker/example';
 import TabsExample from './tabs/example';
 import { colorPickerRegistry } from './color-picker/registry';
+import { datePickerRegistry } from './date-picker/registry';
+import { cardRegistry } from './card/registry';
+import { tabsRegistry } from './tabs/registry';
+import { comboboxRegistry } from './combobox/registry';
 
 function getPath(path: string) {
   return resolve(process.cwd(), 'registry', path);
@@ -14,22 +18,35 @@ export const registry = {
   Combobox: {
     Example: ComboboxExample,
     path: getPath('./combobox/example.tsx'),
+    componentPath: getPath('./combobox/combobox.tsx'),
+    dependencies: comboboxRegistry.files
+      .map((f) => f.dependencies ?? [])
+      .flat(),
   },
   Tabs: {
     Example: TabsExample,
     path: getPath('./tabs/example.tsx'),
+    componentPath: getPath('./tabs/tabs.tsx'),
+    dependencies: tabsRegistry.files.map((f) => f.dependencies ?? []).flat(),
   },
   Card: {
     Example: CardExample,
     path: getPath('./card/example.tsx'),
+    componentPath: getPath('./card/card.tsx'),
+    dependencies: cardRegistry.files.map((f) => f.dependencies ?? []).flat(),
   },
   DatePicker: {
     Example: DatePickerExample,
     path: getPath('./date-picker/example.tsx'),
+    componentPath: getPath('./date-picker/date-picker.tsx'),
+    dependencies: datePickerRegistry.files
+      .map((f) => f.dependencies ?? [])
+      .flat(),
   },
   ColorPicker: {
     Example: ColorPickerExample,
     path: getPath('./color-picker/example.tsx'),
+    componentPath: getPath('./color-picker/color-picker.tsx'),
     dependencies: colorPickerRegistry.files
       .map((f) => f.dependencies ?? [])
       .flat(),

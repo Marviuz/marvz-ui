@@ -1,6 +1,6 @@
 import { getRegistryItem, type RegistryItem } from '~/utils/registry-utils';
 
-export const combobxRegistry: RegistryItem = {
+export const comboboxRegistry: RegistryItem = {
   name: 'combobox',
   type: 'registry:component',
   files: [
