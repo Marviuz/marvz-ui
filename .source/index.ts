@@ -1,62 +1,71 @@
 // @ts-nocheck -- skip type checking
-import * as docs_5 from '../content/docs/tabs.mdx?collection=docs&hash=1754743023458';
-import * as docs_4 from '../content/docs/index.mdx?collection=docs&hash=1754743023458';
-import * as docs_3 from '../content/docs/date-picker.mdx?collection=docs&hash=1754743023458';
-import * as docs_2 from '../content/docs/combobox.mdx?collection=docs&hash=1754743023458';
-import * as docs_1 from '../content/docs/color-picker.mdx?collection=docs&hash=1754743023458';
-import * as docs_0 from '../content/docs/card.mdx?collection=docs&hash=1754743023458';
+import * as docs_5 from '../content/docs/get-started/introduction.mdx?collection=docs&hash=1754745207188';
+import * as docs_4 from '../content/docs/components/tabs.mdx?collection=docs&hash=1754745207188';
+import * as docs_3 from '../content/docs/components/date-picker.mdx?collection=docs&hash=1754745207188';
+import * as docs_2 from '../content/docs/components/combobox.mdx?collection=docs&hash=1754745207188';
+import * as docs_1 from '../content/docs/components/color-picker.mdx?collection=docs&hash=1754745207188';
+import * as docs_0 from '../content/docs/components/card.mdx?collection=docs&hash=1754745207188';
 import { _runtime } from 'fumadocs-mdx';
 import * as _source from '../source.config';
 export const docs = _runtime.docs<typeof _source.docs>(
   [
     {
       info: {
-        path: 'card.mdx',
+        path: 'components/card.mdx',
         absolutePath:
-          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/card.mdx',
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/components/card.mdx',
       },
       data: docs_0,
     },
     {
       info: {
-        path: 'color-picker.mdx',
+        path: 'components/color-picker.mdx',
         absolutePath:
-          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/color-picker.mdx',
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/components/color-picker.mdx',
       },
       data: docs_1,
     },
     {
       info: {
-        path: 'combobox.mdx',
+        path: 'components/combobox.mdx',
         absolutePath:
-          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/combobox.mdx',
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/components/combobox.mdx',
       },
       data: docs_2,
     },
     {
       info: {
-        path: 'date-picker.mdx',
+        path: 'components/date-picker.mdx',
         absolutePath:
-          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/date-picker.mdx',
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/components/date-picker.mdx',
       },
       data: docs_3,
     },
     {
       info: {
-        path: 'index.mdx',
+        path: 'components/tabs.mdx',
         absolutePath:
-          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/index.mdx',
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/components/tabs.mdx',
       },
       data: docs_4,
     },
     {
       info: {
-        path: 'tabs.mdx',
+        path: 'get-started/introduction.mdx',
         absolutePath:
-          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/tabs.mdx',
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/get-started/introduction.mdx',
       },
       data: docs_5,
     },
   ],
-  [],
+  [
+    {
+      info: {
+        path: 'meta.json',
+        absolutePath:
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/meta.json',
+      },
+      data: { pages: ['get-started', 'components'] },
+    },
+  ],
 );
