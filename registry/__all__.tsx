@@ -1,9 +1,10 @@
 import { resolve } from 'node:path';
-import ComboboxExample from './combobox/example';
-import TabsExample from './tabs/example';
 import CardExample from './card/example';
-import DatePickerExample from './date-picker/example';
 import { ColorPickerExample } from './color-picker/example';
+import ComboboxExample from './combobox/example';
+import DatePickerExample from './date-picker/example';
+import TabsExample from './tabs/example';
+import { colorPickerRegistry } from './color-picker/registry';
 
 function getPath(path: string) {
   return resolve(process.cwd(), 'registry', path);
@@ -29,6 +30,9 @@ export const registry = {
   ColorPicker: {
     Example: ColorPickerExample,
     path: getPath('./color-picker/example.tsx'),
+    dependencies: colorPickerRegistry.files
+      .map((f) => f.dependencies ?? [])
+      .flat(),
   },
 } as const;
 

@@ -65,7 +65,10 @@ export function TabsList({
   const Comp = asChild ? Slot : 'div';
   return (
     <Comp
-      className={cn('flex space-x-2', className)}
+      className={cn(
+        'bg-secondary/25 flex w-fit gap-2 rounded-md border p-1',
+        className,
+      )}
       data-slot="tabs-list"
       {...api.getListProps()}
       {...props}
@@ -85,8 +88,9 @@ export function TabsTrigger({
   return (
     <Comp
       className={cn(
-        'rounded-md px-3 py-1.5 text-sm font-medium',
-        'aria-selected:bg-accent aria-selected:text-accent-foreground',
+        'rounded-md border border-transparent px-3 py-1.5 text-xs font-bold transition',
+        'hover:border-border hover:bg-accent/50',
+        'aria-selected:bg-accent aria-selected:text-accent-foreground aria-selected:border-border',
         className,
       )}
       data-slot="tabs-trigger"
