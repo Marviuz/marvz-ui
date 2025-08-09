@@ -22,14 +22,19 @@ export default async function Page(props: {
   return (
     <DocsPage full={page.data.full} toc={page.data.toc}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <div className="mb-8">
-        <div className="flex flex-col items-start gap-4">
-          <DocsDescription className="mb-0">
-            {page.data.description}
-          </DocsDescription>
-          {page.data.docs ? <DocBadge href={page.data.docs} /> : null}
+      {page.data.description || page.data.docs ? (
+        <div className="mb-8">
+          <div className="flex flex-col items-start gap-4">
+            {page.data.description ? (
+              <DocsDescription className="mb-0">
+                {page.data.description}
+              </DocsDescription>
+            ) : null}
+            {page.data.docs ? <DocBadge href={page.data.docs} /> : null}
+          </div>
         </div>
-      </div>
+      ) : null}
+
       <DocsBody>
         <Mdx components={getMDXComponents()} />
       </DocsBody>
