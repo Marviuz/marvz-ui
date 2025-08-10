@@ -1,7 +1,8 @@
 import { type BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { BRAND_NAME } from '~/lib/branding';
 
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: 'Marvz UI',
+    title: BRAND_NAME,
   },
 };
