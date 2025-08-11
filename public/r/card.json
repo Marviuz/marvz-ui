@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:component",
+  "files": [
+    {
+      "path": "registry/card/card.tsx",
+      "content": "import { Slot } from '@radix-ui/react-slot';\nimport { type ComponentProps } from 'react';\nimport { cn } from '~/lib/utils';\n\ntype AsChild = {\n  asChild?: boolean;\n};\n\ntype DivProps = ComponentProps<'div'> & AsChild;\n\nexport function Card({ asChild, className, ...props }: DivProps) {\n  const Comp = asChild ? Slot : 'div';\n  return (\n    <Comp\n      className={cn(\n        'svg-bg-noise-grain bg-card text-card-foreground grid gap-2 rounded-md border py-6 shadow-sm',\n        className,\n      )}\n      data-slot=\"card\"\n      {...props}\n    />\n  );\n}\n\nexport function CardContent({ asChild, className, ...props }: DivProps) {\n  const Comp = asChild ? Slot : 'div';\n  return (\n    <Comp\n      className={cn('px-6', className)}\n      data-slot=\"card-content\"\n      {...props}\n    />\n  );\n}\n\nexport function CardHeader({ asChild, className, ...props }: DivProps) {\n  const Comp = asChild ? Slot : 'div';\n  return (\n    <Comp\n      className={cn('grid gap-4 px-6', className)}\n      data-slot=\"card-header\"\n      {...props}\n    />\n  );\n}\n\nexport function CardTitle({\n  asChild,\n  className,\n  ...props\n}: ComponentProps<'h3'> & AsChild) {\n  const Comp = asChild ? Slot : 'h3';\n  return (\n    <Comp\n      className={cn('text-2xl font-bold', className)}\n      data-slot=\"card-title\"\n      {...props}\n    />\n  );\n}\n\nexport function CardDescription({\n  asChild,\n  className,\n  ...props\n}: ComponentProps<'p'> & AsChild) {\n  const Comp = asChild ? Slot : 'h3';\n  return (\n    <Comp\n      className={cn('text-muted-foreground text-sm', className)}\n      data-slot=\"card-description\"\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}
