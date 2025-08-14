@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { BRAND_NAME } from '~/lib/branding';
+import { SiGithub } from '@icons-pack/react-simple-icons';
+import { BRAND_NAME, REPO_URL } from '~/lib/branding';
 import { Button } from './ui/button';
 
 export function Header() {
@@ -22,6 +23,13 @@ export function Header() {
               href="/docs/components/card"
             >
               Components
+            </Link>
+            <Link
+              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+              href={REPO_URL}
+              target="_blank"
+            >
+              <SiGithub className="size-4" />
             </Link>
           </div>
           <Button asChild className="rounded-full" size="sm">
