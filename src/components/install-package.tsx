@@ -11,11 +11,6 @@ import {
 
 type CmdType = 'install' | 'execute';
 
-type InstallPackageProps = {
-  cmdType: CmdType;
-  registry: keyof Registry;
-};
-
 type PackageManager = Record<'pm' | CmdType, string>;
 
 const packageManagers: PackageManager[] = [
@@ -32,6 +27,11 @@ function checkDeps(deps: unknown): string[] | null {
 
   return null;
 }
+
+export type InstallPackageProps = {
+  cmdType?: CmdType;
+  registry: keyof Registry;
+};
 
 export function InstallPackage({
   registry,

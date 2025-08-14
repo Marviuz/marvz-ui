@@ -1,4 +1,3 @@
-import { type Registry } from '~registry/__all__';
 import {
   TabsContent,
   TabsList,
@@ -6,14 +5,12 @@ import {
   TabsRoot,
   TabsTrigger,
 } from '~registry/tabs/tabs';
-import { InstallPackage } from './install-package';
+import { InstallPackage, type InstallPackageProps } from './install-package';
 import { ManualInstall } from './manual-install';
 
-type ComponentInstallProps = {
-  registry: keyof Registry;
-};
+type ComponentInstallProps = InstallPackageProps;
 
-export function ComponentInstall({ registry }: ComponentInstallProps) {
+export function ComponentInstall({ registry, cmdType }: ComponentInstallProps) {
   return (
     <TabsProvider defaultValue="cli">
       <TabsRoot className="grid gap-4">
@@ -23,7 +20,7 @@ export function ComponentInstall({ registry }: ComponentInstallProps) {
         </TabsList>
 
         <TabsContent value="cli">
-          <InstallPackage registry={registry} />
+          <InstallPackage cmdType={cmdType} registry={registry} />
         </TabsContent>
         <TabsContent value="manual">
           <p className="text-muted-foreground text-lg">
