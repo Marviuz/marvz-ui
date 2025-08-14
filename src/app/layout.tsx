@@ -7,7 +7,7 @@ import { cn } from '~/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Marvz UI',
-  description: 'Tailored UI forUnique Needs.',
+  description: 'Tailored UI for your unique Needs.',
 };
 
 export default function RootLayout({
