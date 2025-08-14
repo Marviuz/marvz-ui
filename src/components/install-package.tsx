@@ -1,4 +1,5 @@
 import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import { getBaseUrl } from '~/lib/get-base-url';
 import { registry as allRegistry, type Registry } from '~registry/__all__';
 import {
   TabsContent,
@@ -8,15 +9,20 @@ import {
   TabsTrigger,
 } from '~registry/tabs/tabs';
 
+type CmdType = 'install' | 'execute';
+
 type InstallPackageProps = {
+  cmdType: CmdType;
   registry: keyof Registry;
 };
 
-const packageManagers = [
-  { pm: 'pnpm', cmd: 'pnpm add' },
-  { pm: 'npm', cmd: 'npm install' },
-  { pm: 'yarn', cmd: 'yarn add' },
-  { pm: 'bun', cmd: 'bun add' },
+type PackageManager = Record<'pm' | CmdType, string>;
+
+const packageManagers: PackageManager[] = [
+  { pm: 'pnpm', install: 'pnpm add', execute: 'pnpx' },
+  { pm: 'npm', install: 'npm install', execute: 'npx' },
+  { pm: 'yarn', install: 'yarn add', execute: 'yarn dlx' },
+  { pm: 'bun', install: 'bun add', execute: 'bunx' },
 ];
 
 function checkDeps(deps: unknown): string[] | null {
@@ -27,8 +33,12 @@ function checkDeps(deps: unknown): string[] | null {
   return null;
 }
 
-export function InstallPackage({ registry }: InstallPackageProps) {
-  const deps = checkDeps(allRegistry[registry].dependencies);
+export function InstallPackage({
+  registry,
+  cmdType = 'execute',
+}: InstallPackageProps) {
+  const regItem = allRegistry[registry];
+  const deps = checkDeps(regItem.dependencies);
 
   if (!deps) {
     return null;
@@ -45,13 +55,21 @@ export function InstallPackage({ registry }: InstallPackageProps) {
           ))}
         </TabsList>
 
-        {packageManagers.map(({ pm, cmd }) => (
+        {packageManagers.map(({ pm, install, execute }) => (
           <TabsContent key={pm} value={pm}>
-            <DynamicCodeBlock
-              code={`${cmd} ${deps.join(' ')}`}
-              lang="bash"
-              options={{ theme: 'poimandres' }}
-            />
+            {cmdType === 'install' ? (
+              <DynamicCodeBlock
+                code={`${install} ${deps.join(' ')}`}
+                lang="bash"
+                options={{ theme: 'poimandres' }}
+              />
+            ) : (
+              <DynamicCodeBlock
+                code={`${execute} shadcn@latest add ${getBaseUrl()}/r/${regItem.name}.json`}
+                lang="bash"
+                options={{ theme: 'poimandres' }}
+              />
+            )}
           </TabsContent>
         ))}
       </TabsRoot>

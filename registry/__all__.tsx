@@ -16,6 +16,7 @@ function getPath(path: string) {
 
 export const registry = {
   Combobox: {
+    name: 'combobox',
     Example: ComboboxExample,
     path: getPath('./combobox/example.tsx'),
     componentPath: getPath('./combobox/combobox.tsx'),
@@ -25,6 +26,7 @@ export const registry = {
       .flat(),
   },
   Tabs: {
+    name: 'tabs',
     Example: TabsExample,
     path: getPath('./tabs/example.tsx'),
     componentPath: getPath('./tabs/tabs.tsx'),
@@ -32,6 +34,7 @@ export const registry = {
     dependencies: tabsRegistry.files.map((f) => f.dependencies ?? []).flat(),
   },
   Card: {
+    name: 'card',
     Example: CardExample,
     path: getPath('./card/example.tsx'),
     componentPath: getPath('./card/card.tsx'),
@@ -39,6 +42,7 @@ export const registry = {
     dependencies: cardRegistry.files.map((f) => f.dependencies ?? []).flat(),
   },
   DatePicker: {
+    name: 'date-picker',
     Example: DatePickerExample,
     path: getPath('./date-picker/example.tsx'),
     componentPath: getPath('./date-picker/date-picker.tsx'),
@@ -48,6 +52,7 @@ export const registry = {
       .flat(),
   },
   ColorPicker: {
+    name: 'color-picker',
     Example: ColorPickerExample,
     path: getPath('./color-picker/example.tsx'),
     componentPath: getPath('./color-picker/color-picker.tsx'),
