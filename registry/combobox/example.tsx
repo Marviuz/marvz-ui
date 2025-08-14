@@ -46,7 +46,7 @@ export default function ComboboxExample() {
       onSelect={(selectedValue) => setValue(selectedValue.value)}
     >
       <ComboboxRoot>
-        <ComboboxLabel>Select file label</ComboboxLabel>
+        <ComboboxLabel>Pick Option</ComboboxLabel>
         <ComboboxControl>
           <ComboboxInput />
           <ComboboxTrigger size="icon" variant="ghost">

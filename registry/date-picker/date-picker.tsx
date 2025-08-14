@@ -93,9 +93,18 @@ export function DatePickerPositioner({
   );
 }
 
-export function DatePickerContent(props: ComponentProps<typeof Card>) {
+export function DatePickerContent({
+  className,
+  ...props
+}: ComponentProps<typeof Card>) {
   const api = useDatePicker();
-  return <Card {...api.getContentProps()} {...props} />;
+  return (
+    <Card
+      className={cn('p-0', className)}
+      {...api.getContentProps()}
+      {...props}
+    />
+  );
 }
 
 export function DatePickerDayView() {
