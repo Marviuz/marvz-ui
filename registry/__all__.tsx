@@ -20,7 +20,7 @@ export const registry = {
     Example: ComboboxExample,
     path: getPath('./combobox/example.tsx'),
     componentPath: getPath('./combobox/combobox.tsx'),
-    usagePath: getPath('./combobox/example.tsx'),
+    usagePath: getPath('./combobox/usage.tsx'),
     dependencies: comboboxRegistry.files
       .map((f) => f.dependencies ?? [])
       .flat(),

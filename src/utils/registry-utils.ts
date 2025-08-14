@@ -12,6 +12,7 @@ export type RegistryItem = {
     dependencies?: string[];
   }[];
   registryDependencies?: string[];
+  css?: Record<string, Record<string, string>>;
 };
 
 /**
