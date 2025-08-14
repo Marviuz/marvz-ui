@@ -1,6 +1,7 @@
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { Layers, Terminal, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { getBaseUrl } from '~/lib/get-base-url';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { HomepageCodeExample } from './homepage-code-example';
@@ -64,7 +65,6 @@ export function LandingHero() {
             {/* </div> */}
           </div>
 
-          {/* Interactive Code Preview with Shiki */}
           <div className="relative">
             <div className="bg-card border-border rounded-2xl border p-6 shadow-2xl">
               <div className="mb-4 flex items-center justify-between">
@@ -73,15 +73,15 @@ export function LandingHero() {
                   <div className="h-3 w-3 rounded-full bg-yellow-500" />
                   <div className="h-3 w-3 rounded-full bg-green-500" />
                 </div>
-                <Badge variant="secondary">button.tsx</Badge>
+                <Badge variant="secondary">card.tsx</Badge>
               </div>
               <div className="grid gap-4">
                 <div className="text-muted-foreground font-mono text-sm">
                   Install component
                 </div>
                 <div className="bg-muted rounded-lg p-3 font-mono text-sm">
-                  <span className="text-primary">$</span> npx shadcn@latest add
-                  button
+                  <span className="text-primary">$</span> pnpx shadcn@latest add{' '}
+                  {getBaseUrl()}/r/card.json
                 </div>
                 <div className="text-muted-foreground font-mono text-sm">
                   Use in your app

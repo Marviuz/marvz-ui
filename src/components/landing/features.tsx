@@ -1,4 +1,6 @@
 import { GitBranch, Layers, Rocket, Zap } from 'lucide-react';
+import { getBaseUrl } from '~/lib/get-base-url';
+import { registry } from '~registry/__all__';
 import {
   Card,
   CardContent,
@@ -38,15 +40,19 @@ export function LandingFeatures() {
             <CardContent className="px-8">
               <div className="bg-background/50 rounded-lg p-4 font-mono text-sm">
                 <div className="text-primary">
-                  $ npx shadcn@latest add button
+                  $ pnpx shadcn@latest add {getBaseUrl()}/r/card.json $
                 </div>
                 <div className="text-muted-foreground mt-1">
-                  ✓ Added button component
+                  <span className="text-green-500">✔</span>
+                  Checking registry.
                 </div>
                 <div className="text-muted-foreground">
-                  ✓ Updated dependencies
+                  <span className="text-green-500">✔</span>
+                  Created 1 file:
                 </div>
-                <div className="text-green-500">✓ Ready to customize! 🎨</div>
+                <div className="text-muted-foreground">
+                  &nbsp;&nbsp;- src/components/ui/card.tsx
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -60,8 +66,8 @@ export function LandingFeatures() {
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Built with CSS variables and Tailwind. Change colors, spacing,
-                and behavior to match your design.
+                Built with Tailwind. Change colors, spacing, and behavior to
+                match your design.
               </CardDescription>
             </CardContent>
           </Card>
@@ -108,7 +114,9 @@ export function LandingFeatures() {
                   </CardDescription>
                 </div>
                 <div className="text-right">
-                  <div className="text-primary text-3xl font-bold">50+</div>
+                  <div className="text-primary text-3xl font-bold">
+                    {Object.keys(registry).length}
+                  </div>
                   <div className="text-muted-foreground text-sm">
                     Components
                   </div>

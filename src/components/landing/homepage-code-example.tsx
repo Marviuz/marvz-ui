@@ -2,10 +2,10 @@ import { highlight } from 'fumadocs-core/highlight';
 import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
 
 export async function HomepageCodeExample() {
-  const content = `import { Button } from "@/components/ui/button"
+  const content = `import { Card } from "@/components/ui/card"
 
 export function MyComponent() {
-return <Button>Click me</Button>
+  return <Card>Dark mode is the only mode!</Card>
 }`;
 
   const rendered = await highlight(content, {
