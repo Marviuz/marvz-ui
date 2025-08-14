@@ -11,7 +11,7 @@
     "lint": "next lint",
     "prepare": "husky",
     "registry:build": "shadcn build",
-    "registry:generate": "tsx scripts/build-registry.ts",
+    "registry:generate": "dotenv tsx scripts/build-registry.ts",
     "start": "next start"
   },
   "dependencies": {
@@ -49,6 +49,7 @@
     "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",

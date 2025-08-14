@@ -1,4 +1,8 @@
-import { getRegistryItem, type RegistryItem } from '~/utils/registry-utils';
+import {
+  getRegistryInstallPath,
+  getRegistryItem,
+  type RegistryItem,
+} from '~/utils/registry-utils';
 
 export const datePickerRegistry: RegistryItem = {
   name: 'date-picker',
@@ -14,5 +18,11 @@ export const datePickerRegistry: RegistryItem = {
         'lucide-react',
       ],
     },
+  ],
+  registryDependencies: [
+    'button',
+    'input',
+    'label',
+    getRegistryInstallPath('card'),
   ],
 };

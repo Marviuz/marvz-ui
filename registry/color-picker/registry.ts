@@ -1,4 +1,8 @@
-import { getRegistryItem, type RegistryItem } from '~/utils/registry-utils';
+import {
+  getRegistryInstallPath,
+  getRegistryItem,
+  type RegistryItem,
+} from '~/utils/registry-utils';
 
 export const colorPickerRegistry: RegistryItem = {
   name: 'color-picker',
@@ -13,5 +17,11 @@ export const colorPickerRegistry: RegistryItem = {
         '@zag-js/react',
       ],
     },
+  ],
+  registryDependencies: [
+    'button',
+    'input',
+    'label',
+    getRegistryInstallPath('card'),
   ],
 };

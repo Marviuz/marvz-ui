@@ -7,6 +7,7 @@ export const cardRegistry: RegistryItem = {
     {
       path: getRegistryItem(import.meta.url, 'card.tsx'),
       type: 'registry:ui',
+      dependencies: ['@radix-ui/react-slot'],
     },
   ],
 };

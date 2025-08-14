@@ -2,6 +2,12 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "color-picker",
   "type": "registry:component",
+  "registryDependencies": [
+    "button",
+    "input",
+    "label",
+    "https://localhost:3000/r/card.json"
+  ],
   "files": [
     {
       "path": "registry/color-picker/color-picker.tsx",

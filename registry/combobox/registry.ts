@@ -14,4 +14,5 @@ export const comboboxRegistry: RegistryItem = {
       ],
     },
   ],
+  registryDependencies: ['button', 'input', 'label'],
 };

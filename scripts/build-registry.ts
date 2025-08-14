@@ -2,6 +2,7 @@
 
 import { writeFile } from 'node:fs/promises';
 import { relative } from 'node:path';
+import { getBaseUrl } from '~/lib/get-base-url';
 import { type RegistryItem } from '~/utils/registry-utils';
 import { cardRegistry } from '~registry/card/registry';
 import { colorPickerRegistry } from '~registry/color-picker/registry';
@@ -21,8 +22,8 @@ const registries = [
 
 export const initialRegistry = {
   $schema: 'https://ui.shadcn.com/schema/registry.json',
-  name: 'ui.marviuz.me',
-  homepage: 'https://example.com',
+  name: 'Marvz UI',
+  homepage: getBaseUrl(),
   items: [] as RegistryItem[],
 } as const;
 
