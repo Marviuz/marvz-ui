@@ -9,6 +9,8 @@ import { datePickerRegistry } from './date-picker/registry';
 import { cardRegistry } from './card/registry';
 import { tabsRegistry } from './tabs/registry';
 import { comboboxRegistry } from './combobox/registry';
+import TagsInputExample from './tags-input/example';
+import { tagsInputRegistry } from './tags-input/registry';
 
 function getPath(path: string) {
   return resolve(process.cwd(), 'registry', path);
@@ -58,6 +60,16 @@ export const registry = {
     componentPath: getPath('./color-picker/color-picker.tsx'),
     usagePath: getPath('./color-picker/example.tsx'),
     dependencies: colorPickerRegistry.files
+      .map((f) => f.dependencies ?? [])
+      .flat(),
+  },
+  TagsInput: {
+    name: 'tags-input',
+    Example: TagsInputExample,
+    path: getPath('./tags-input/example.tsx'),
+    componentPath: getPath('./tags-input/tags-input.tsx'),
+    usagePath: getPath('./tags-input/example.tsx'),
+    dependencies: tagsInputRegistry.files
       .map((f) => f.dependencies ?? [])
       .flat(),
   },

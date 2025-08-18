@@ -1,5 +1,6 @@
 // @ts-nocheck -- skip type checking
-import * as docs_5 from '../content/docs/get-started/introduction.mdx?collection=docs&hash=1755172214326';
+import * as docs_6 from '../content/docs/get-started/introduction.mdx?collection=docs&hash=1755172214326';
+import * as docs_5 from '../content/docs/components/tags-input.mdx?collection=docs&hash=1755172214326';
 import * as docs_4 from '../content/docs/components/tabs.mdx?collection=docs&hash=1755172214326';
 import * as docs_3 from '../content/docs/components/date-picker.mdx?collection=docs&hash=1755172214326';
 import * as docs_2 from '../content/docs/components/combobox.mdx?collection=docs&hash=1755172214326';
@@ -51,11 +52,19 @@ export const docs = _runtime.docs<typeof _source.docs>(
     },
     {
       info: {
+        path: 'components/tags-input.mdx',
+        absolutePath:
+          '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/components/tags-input.mdx',
+      },
+      data: docs_5,
+    },
+    {
+      info: {
         path: 'get-started/introduction.mdx',
         absolutePath:
           '/home/marviuz/Projects/marviuz/marvz-ui/content/docs/get-started/introduction.mdx',
       },
-      data: docs_5,
+      data: docs_6,
     },
   ],
   [

@@ -5,11 +5,11 @@ import * as datePicker from '@zag-js/date-picker';
 import { normalizeProps, Portal, useMachine } from '@zag-js/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
-  type ComponentProps,
   createContext,
-  type ReactNode,
-  useContext,
+  use,
   useId,
+  type ComponentProps,
+  type ReactNode,
 } from 'react';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
@@ -24,7 +24,7 @@ const DatePickerContext = createContext<ReturnType<
   typeof datePicker.connect
 > | null>(null);
 const useDatePicker = () => {
-  const ctx = useContext(DatePickerContext);
+  const ctx = use(DatePickerContext);
   if (!ctx) throw new Error('Must be used within <DatePickerProvider>');
   return ctx;
 };
