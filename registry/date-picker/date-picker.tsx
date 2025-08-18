@@ -48,6 +48,17 @@ export function DatePickerProvider({
   return <DatePickerContext value={api}>{children}</DatePickerContext>;
 }
 
+export function DatePickerRoot({
+  asChild,
+  ...props
+}: ComponentProps<'div'> & AsChild) {
+  const api = useDatePicker();
+  const Comp = asChild ? Slot : 'div';
+  return (
+    <Comp data-slot="date-picker-root" {...api.getRootProps()} {...props} />
+  );
+}
+
 export function DatePickerControl({
   asChild,
   className,
@@ -58,6 +69,7 @@ export function DatePickerControl({
   return (
     <Comp
       className={cn('flex gap-2', className)}
+      data-slot="date-picker-control"
       {...api.getControlProps()}
       {...props}
     />
@@ -70,7 +82,13 @@ export function DatePickerInput({
   ...props
 }: ComponentProps<typeof Input> & datePicker.InputProps) {
   const api = useDatePicker();
-  return <Input {...api.getInputProps({ fixOnBlur, index })} {...props} />;
+  return (
+    <Input
+      data-slot="date-picker-input"
+      {...api.getInputProps({ fixOnBlur, index })}
+      {...props}
+    />
+  );
 }
 
 export function DatePickerTrigger(props: ComponentProps<typeof Button>) {
@@ -101,6 +119,7 @@ export function DatePickerContent({
   return (
     <Card
       className={cn('p-0', className)}
+      data-slot="date-picker-content"
       {...api.getContentProps()}
       {...props}
     />
@@ -115,13 +134,28 @@ export function DatePickerDayView() {
         className="flex items-center justify-between gap-2"
         {...api.getViewControlProps({ view: 'year' })}
       >
-        <Button {...api.getPrevTriggerProps()} size="icon" variant="ghost">
+        <Button
+          {...api.getPrevTriggerProps()}
+          size="icon"
+          type="button"
+          variant="ghost"
+        >
           <ChevronLeft />
         </Button>
-        <Button {...api.getViewTriggerProps()} size="sm" variant="ghost">
+        <Button
+          {...api.getViewTriggerProps()}
+          size="sm"
+          type="button"
+          variant="ghost"
+        >
           {api.visibleRangeText.start}
         </Button>
-        <Button {...api.getNextTriggerProps()} size="icon" variant="ghost">
+        <Button
+          {...api.getNextTriggerProps()}
+          size="icon"
+          type="button"
+          variant="ghost"
+        >
           <ChevronRight />
         </Button>
       </div>
@@ -144,6 +178,7 @@ export function DatePickerDayView() {
                   <Button
                     className="text-right"
                     size="icon"
+                    type="button"
                     variant="ghost"
                     {...api.getDayTableCellTriggerProps({ value })}
                   >
@@ -170,6 +205,7 @@ export function DatePickerMonthView() {
         <Button
           {...api.getPrevTriggerProps({ view: 'month' })}
           size="icon"
+          type="button"
           variant="ghost"
         >
           <ChevronLeft />
@@ -177,6 +213,7 @@ export function DatePickerMonthView() {
         <Button
           {...api.getViewTriggerProps({ view: 'month' })}
           size="sm"
+          type="button"
           variant="ghost"
         >
           {api.visibleRange.start.year}
@@ -184,6 +221,7 @@ export function DatePickerMonthView() {
         <Button
           {...api.getNextTriggerProps({ view: 'month' })}
           size="icon"
+          type="button"
           variant="ghost"
         >
           <ChevronRight />
@@ -206,6 +244,7 @@ export function DatePickerMonthView() {
                   >
                     <Button
                       className="w-full"
+                      type="button"
                       variant="ghost"
                       {...api.getMonthTableCellTriggerProps({
                         ...month,
@@ -235,6 +274,7 @@ export function DatePickerYearView() {
         <Button
           {...api.getPrevTriggerProps({ view: 'year' })}
           size="icon"
+          type="button"
           variant="ghost"
         >
           <ChevronLeft />
@@ -245,6 +285,7 @@ export function DatePickerYearView() {
         <Button
           {...api.getNextTriggerProps({ view: 'year' })}
           size="icon"
+          type="button"
           variant="ghost"
         >
           <ChevronRight />
@@ -266,6 +307,7 @@ export function DatePickerYearView() {
                   <Button
                     className="w-full"
                     size="sm"
+                    type="button"
                     variant="ghost"
                     {...api.getYearTableCellTriggerProps({
                       ...year,
