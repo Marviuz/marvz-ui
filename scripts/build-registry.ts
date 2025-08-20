@@ -9,6 +9,7 @@ import { colorPickerRegistry } from '~registry/color-picker/registry';
 import { comboboxRegistry } from '~registry/combobox/registry';
 import { datePickerRegistry } from '~registry/date-picker/registry';
 import { tabsRegistry } from '~registry/tabs/registry';
+import { tagsInputRegistry } from '~registry/tags-input/registry';
 
 const registries = [
   comboboxRegistry,
@@ -16,6 +17,7 @@ const registries = [
   tabsRegistry,
   datePickerRegistry,
   colorPickerRegistry,
+  tagsInputRegistry,
 ].sort(
   (a, b) => a.name.localeCompare(b.name), // Sort by name... just make it look nice in registry.json
 );
